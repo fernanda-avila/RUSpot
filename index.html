@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Online</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/163b3848e1.js" crossorigin="anonymous">
+    
+  </script>
+  <style>
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    #cart-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 90%;
+    }
+    .close {
+      cursor: pointer;
+      font-size: 24px;
+      color: #333;
+    }
+    
+  </style>
+</head>
+<body>
+
+  
+  <div class="navbar">
+    <img src="logo.png" alt="Logo" class="logo-img">
+    <div class="icons">
+      <a href="#" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
+      <div class="login-icon">
+        <a id="open-modal" href="./login.html">
+          <img src="Log in.png" alt="" class="login-img">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="modal-overlay"></div>
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Seu Carrinho</h2>
+      <ul id="cart-items-list"></ul>
+      <p id="total-price">Total: R$ 0,00</p>
+      <button id="checkout-btn">Finalizar Compra</button>
+    </div>
+  </div>
+
+ 
+  <div class="search-location-container">
+    <div class="search-bar">
+      <input type="text" placeholder="Busque por produtos">
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="address">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Rua Gonçalves Chaves, 600</span>
+    </div>
+  </div>
+
+  
+  <section class="banner">
+    <img src="banner.png" alt="Logo Senac">
+  </section>
+
+  
+  <div class="buttons-container">
+    <button class="menu-button" onclick="mostrarCardapio()">Cardápio</button>
+    <button class="market-button" onclick="mostrarMercado()">Mercado</button>
+  </div>
+
+
+ <div id="cardapio" class="content-section cardapio-content">
+  <!-- <img src="freepik__background__26214.png" alt="" class="img-cardapio"> -->
+
+    <div class="accordion-container">
+     
+      <div class="accordion-item">
+        <input type="radio" id="segunda" name="dia" class="accordion-toggle">
+        <label for="segunda" class="segunda">
+          Segunda-feira
+        </label>
+        <div class="accordion-content">
+          <table>
+            <tr>
+                <th>Cardapio Segunda</th>
+                <th>Calorias *100 gramas </th>
+            </tr>
+            <tr>
+                <td>Arroz Branco/ Integral</td>
+                <td>130 Kcal</td>
+            </tr>
+            <tr>
+                <td>Feijão Preto </td>
+                <td>67 Kcal</td>
+            </tr>
+            <tr>
+                <td> Bife de Frango Grelhado </td>
+                <td>240 Kcal</td>
+            </tr>
+            <tr>
+                <td>Bife de Frango Grelhado</td>
+                <td>338 Kcal</td>
+            </tr>
+            <tr>
+                <td>Polenta</td>
+                <td>146 Kcal</td>
+            </tr>
+            <tr>
+                <td>Salada Verde</td>
+                <td>34 Kcal</td>
+            </tr>
+            <tr>
+                <td>Beterraba </td>
+                <td> 49 Kcal</td>
+            </tr>
+            <tr>
+                <td>Agridoce</td>
+                <td>132 Kcal</td>
+            </tr>
+   
+            <tr>
+                <td>Salada de Frutas</td>
+                <td>131 Kcal</td>
+            </tr>
+        </table>
+        </div>
+      </div>
+     
+      <div class="accordion-item">
+        <input type="radio" id="terca" name="dia" class="accordion-toggle">
+        <label for="terca" class="terca">
+          Terça-feira
+        </label>
+        <div class="accordion-content">
+        
+          <table id="terca1">
+            <tr>
+                <th>Cardapio Segunda</th>
+                <th>Calorias *100 gramas </th>
+            </tr>
+            <tr>
+                <td>Arroz Branco/ Integral</td>
+                <td>130 Kcal</td>
+            </tr>
+            <tr>
+                <td>Lentilha </td>
+                <td>116 Kcal</td>
+            </tr>
+            <tr>
+                <td> Strogonoff de Frango </td>
+                <td>200 Kcal</td>
+            </tr>
+            <tr>
+                <td>Bolinho de Feijão Colorido</td>
+                <td>200 Kcal</td>
+            </tr>
+            <tr>
+                <td>Batata Palha</td>
+                <td>536 Kcal</td>
+            </tr>
+            <tr>
+                <td>Salada Verde</td>
+                <td>34 Kcal</td>
+            </tr>
+            <tr>
+                <td>Cenoura Ralada</td>
+                <td> 41 Kcal</td>
+            </tr>
+            <tr>
+                <td>Alecrim com Limão</td>
+                <td>8 Kcal</td>
+            </tr>
+   
+            <tr>
+                <td>Gelatina</td>
+                <td>60 Kcal</td>
+            </tr>
+        </table>
+        </div>
+      </div>
+     
+      <div class="accordion-item quarta">
+        <input type="radio" id="quarta" name="dia" class="accordion-toggle">
+        <label for="quarta" class="quarta">
+          Quarta-feira
+        </label>
+        <div class="accordion-content">
+     
+          <table id="quarta1">
+            <tr>
+                <th>Cardapio Segunda</th>
+                <th>Calorias *100 gramas </th>
+            </tr>
+            <tr>
+                <td>Arroz Branco/ Integral</td>
+                <td>130 Kcal</td>
+            </tr>
+            <tr>
+                <td>Lombo Suíno à Califórnia </td>
+                <td>300  Kcal</td>
+            </tr>
+            <tr>
+                <td> Soja à Califórnia </td>
+                <td>250 Kcal</td>
+            </tr>
+            <tr>
+                <td>Legumes Sauté</td>
+                <td>80 Kcal</td>
+            </tr>
+            <tr>
+                <td>Salada Verde</td>
+                <td>34 Kcal</td>
+            </tr>
+            <tr>
+                <td>Tomate confit</td>
+                <td>120 Kcal</td>
+            </tr>
+            <tr>
+                <td>Pepino</td>
+                <td> 16 Kcal</td>
+            </tr>
+            <tr>
+                <td>Ervas </td>
+                <td>8 Kcal</td>
+            </tr>
+   
+            <tr>
+                <td>Salada de Frutas</td>
+                <td>131 Kcal</td>
+            </tr>
+        </table>
+        </div>
+      </div>
+     
+      <div class="accordion-item quinta">
+        <input type="radio" id="quinta" name="dia" class="accordion-toggle">
+        <label for="quinta" class="quinta">
+          Quinta-feira
+        </label>
+        <div class="accordion-content">
+        
+          <table id="quinta1">
+            <tr>
+                <th>Cardapio Segunda</th>
+                <th>Calorias *100 gramas </th>
+            </tr>
+            <tr>
+                <td>Arroz Branco/ Integral</td>
+                <td>130 Kcal</td>
+            </tr>
+            <tr>
+                <td>Bife Bovino Acebolado </td>
+                <td>300 Kcal</td>
+            </tr>
+            <tr>
+                <td> Falafel </td>
+                <td>250 Kcal</td>
+            </tr>
+            <tr>
+                <td>Macarrão ao Sugo</td>
+                <td>150 Kcal</td>
+            </tr>
+            <tr>
+                <td>Pepino</td>
+                <td>16 Kcal</td>
+            </tr>
+            <tr>
+                <td>Salada Verde</td>
+                <td>34 Kcal</td>
+            </tr>
+            <tr>
+                <td>Vinagrete</td>
+                <td> 80 Kcal</td>
+            </tr>
+   
+            <tr>
+                <td>Gelatina</td>
+                <td>60 Kcal</td>
+            </tr>
+        </table>
+        </div>
+      </div>
+      
+      <div class="accordion-item sexta">
+        <input type="radio" id="sexta" name="dia" class="accordion-toggle">
+        <label for="sexta" class="sexta">
+          
+          Sexta-feira
+        </label>
+        <div class="accordion-content">
+          
+          <table id="sexta1">
+            <tr>
+                <th>Cardapio Segunda</th>
+                <th>Calorias *100 gramas </th>
+            </tr>
+            <tr>
+                <td>Arroz Branco/ Integral</td>
+                <td>130 Kcal</td>
+            </tr>
+            <tr>
+                <td>Feijão Preto </td>
+                <td>67 Kcal</td>
+            </tr>
+            <tr>
+                <td> Sobrecoxa de Frango Assada </td>
+                <td>240 Kcal</td>
+            </tr>
+            <tr>
+                <td>Ervilha com Legumes</td>
+                <td>80 Kcal</td>
+            </tr>
+            <tr>
+                <td>Moranga Refogada</td>
+                <td>60 Kcal</td>
+            </tr>
+            <tr>
+                <td>Salada Verde</td>
+                <td>34 Kcal</td>
+            </tr>
+            <tr>
+                <td>Tabule </td>
+                <td> 149 Kcal</td>
+            </tr>
+            <tr>
+                <td>Mostarda e Mel</td>
+                <td>150 Kcal</td>
+            </tr>
+   
+            <tr>
+                <td>Salada de Frutas</td>
+                <td>131 Kcal</td>
+            </tr>
+        </table>
+        </div>
+      </div>
+    </div>
+    <button class="add-to-cart" id="botao-cardapio-compra" data-name="Ticket almoço/janta" data-price="15,99">Comprar Ticket</button>
+  </div>
+
+
+
+  <div id="mercado" class="content-section" style="display: none;">
+   
+    <div class="carousel">
+      <h2>Chocolates</h2>
+      <div class="carousel-container" id="chocolates-carousel">
+        <div class="card">
+          <img src="https://images.tcdn.com.br/img/img_prod/746520/180_sonho_de_valsa_barra_com_recheio_cremoso_98g_lacta_1_unidade_5811631_1_e0b600e5109450450b3114b364f87a50.jpg" alt="Chocolate 1">
+          <p>Chocolate Sonho de Valsa - 90g</p>
+          <p class="preco">R$ 7,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Chocolate Sonho de Valsa" data-price="7.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Chocolate Sonho de Valsa" data-price="7.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://th.bing.com/th/id/OIP.MR9YuReXmnaQBy3ntDTPQgHaHa?rs=1&pid=ImgDetMain" alt="Chocolate 2">
+          <p>Chocolate Ouro Branco - 90g</p>
+          <p class="preco">R$ 7,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Chocolate Ouro Branco" data-price="7.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Chocolate Ouro Branco" data-price="7.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/19663457/9/1966345701_1SZ.jpg" alt="Chocolate 4">
+          <p>Snickers Chocolate - 45g</p>
+          <p class="preco">R$ 3,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Snickers Chocolate" data-price="3.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Snickers Chocolate" data-price="3.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/5208788626/imagens/barra-de-chocolate-nestle-crunch-90g/5208788626_1_large.jpg" alt="Chocolate 5">
+          <p>Chocolate Nestlé Crunch - 90g</p>
+          <p class="preco">R$ 6,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Chocolate Nestlé Crunch" data-price="6.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Chocolate Nestlé Crunch" data-price="6.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/898184/9/89818428_1SZ.jpg" alt="Chocolate 6">
+          <p>Chocolate Lacta BisXtra - 45g</p>
+          <p class="preco">R$ 3,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Chocolate Lacta BisXtra" data-price="3.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Chocolate Lacta BisXtra" data-price="3.99">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel: Bala Fini -->
+    <div class="carousel">
+      <h2>Bala Fini</h2>
+      <div class="carousel-container" id="fini-carousel">
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img/6889/6/6889656_1GG.jpg" alt="Bala Fini 1">
+          <p>Bala Fini Dentaduras - 90g</p>
+          <p class="preco">R$ 9,90</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Bala Fini Dentaduras" data-price="9.90">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Bala Fini Dentaduras" data-price="9.90">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/68896/9/6889658_1GG.jpg" alt="Bala Fini 2">
+          <p>Bala Fini Beijos de Morango - 90g</p>
+          <p class="preco">R$ 9,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Bala Fini Beijos de Morango" data-price="4.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Bala Fini Beijos de Morango" data-price="4.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/68896/9/6889646_1GG.jpg" alt="Bala Fini 3">
+          <p>Bala Fini Banana - 90g</p>
+          <p class="preco">R$ 9,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Bala Fini Banana" data-price="9.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Bala Fini Banana" data-price="9.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/1296784/9/129678461_1GG.jpg" alt="Bala Fini 4">
+          <p>Bala Fini Minhocas Cítricas - 90g</p>
+          <p class="preco">R$ 9,90</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Bala Fini Minhocas Cítricas" data-price="9.90">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Bala Fini Minhocas Cítricas" data-price="9.90">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/41892373/9/4189237369_1GG.jpg" alt="Bala Fini 6">
+          <p>Bala Fini Minhocas - 90g</p>
+          <p class="preco">R$ 9,90</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Bala Fini Minhocas" data-price="9.90">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Bala Fini Minhocas" data-price="9.90">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="carousel">
+      <h2>Salgadinhos</h2>
+      <div class="carousel-container" id="salgadinhos-carousel">
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/74908123/9/7490812349_1GG.jpg" alt="Salgadinho 1">
+          <p>Salgadinho Cheetos Requeijão - 105g</p>
+          <p class="preco">R$ 5,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Salgadinho Cheetos Requeijão" data-price="5.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Salgadinho Cheetos Requeijão" data-price="5.99">
+            Comprar Direto
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/74908124/9/7490812460_1GG.jpg" alt="Salgadinho 2">
+          <p>Salgadinho Doritos Queijo Nacho - 75g</p>
+          <p class="preco">R$ 4,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Salgadinho Doritos Queijo Nacho" data-price="4.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Salgadinho Doritos Queijo Nacho" data-price="4.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/74903549/9/7490354937_1GG.jpg" alt="Salgadinho 3">
+          <p>Salgadinho Fandangos de Presunto - 105g</p>
+          <p class="preco">R$ 5,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Salgadinho Fandangos de Presunto" data-price="5.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Salgadinho Fandangos de Presunto" data-price="5.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/74908123/9/7490812336_1GG.jpg" alt="Salgadinho 4">
+          <p>Salgadinho Cheetos Queijo - 105g</p>
+          <p class="preco">R$ 5,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Salgadinho Cheetos Queijo" data-price="5.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Salgadinho Cheetos Queijo" data-price="5.99">
+            Comprar
+          </button>
+        </div>
+        <div class="card">
+          <img src="https://images-americanas.b2w.io/produtos/01/00/img3/74908123/9/7490812326_1GG.jpg" alt="Salgadinho 5">
+          <p>Salgadinho Cheetos Mix - 105g</p>
+          <p class="preco">R$ 6,99</p>
+          <div class="cart-buttons">
+            <button class="add-to-cart" data-name="Salgadinho Cheetos Mix" data-price="6.99">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+            <button class="remove-from-cart" data-index="0">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <button class="buy-now" data-name="Salgadinho Cheetos Mix" data-price="6.99">
+            Comprar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Functions to show content sections
+    function mostrarCardapio() {
+      document.getElementById('cardapio').style.display = 'block';
+      document.getElementById('mercado').style.display = 'none';
+    }
+    function mostrarMercado() {
+      document.getElementById('mercado').style.display = 'block';
+      document.getElementById('cardapio').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // CART MODAL FUNCTIONALITY
+
+      // Open cart modal when clicking the cart icon
+      const cartIcon = document.querySelector('.cart-icon');
+      cartIcon.addEventListener('click', function(event) {
+        event.preventDefault();
+        displayCartItems(); 
+        document.getElementById('cart-modal').style.display = 'block';
+        document.getElementById('modal-overlay').style.display = 'flex';
+      });
+
+      
+      const closeModal = document.querySelector('.close');
+      closeModal.addEventListener('click', function() {
+        document.getElementById('cart-modal').style.display = 'none';
+        document.getElementById('modal-overlay').style.display = 'none';
+      });
+
+      
+      const modalOverlay = document.getElementById('modal-overlay');
+      modalOverlay.addEventListener('click', function(event) {
+        if (event.target === modalOverlay) {
+          modalOverlay.style.display = 'none';
+          document.getElementById('cart-modal').style.display = 'none';
+        }
+      });
+
+      
+      let cart = [];
+
+      function updateCartCount() {
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.innerText = cart.length;
+      }
+
+      function addToCart(item) {
+        cart.push(item);
+        updateCartCount();
+        console.log("Item added:", item);
+      }
+
+      function removeFromCart(itemIndex) {
+        cart.splice(itemIndex, 1);
+        updateCartCount();
+        console.log("Item removed:", itemIndex);
+      }
+
+  
+      function displayCartItems() {
+        const cartItemsList = document.getElementById("cart-items-list");
+        cartItemsList.innerHTML = ''; 
+
+        cart.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.innerHTML = `${item.name} - R$ ${item.price} 
+                          <button class="remove-item" data-index="${index}">Remove</button>`;
+          cartItemsList.appendChild(li);
+        });
+
+       
+        let total = 0;
+        cart.forEach(item => {
+          total += parseFloat(item.price);
+        });
+        document.getElementById("total-price").textContent = `Total: R$ ${total.toFixed(2)}`;
+      }
+
+      
+      document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", function() {
+          const item = {
+            name: this.dataset.name,
+            price: this.dataset.price
+          };
+          addToCart(item);
+        });
+      });
+
+     
+      document.getElementById("cart-items-list").addEventListener("click", function(event) {
+        if (event.target.classList.contains("remove-item")) {
+          const itemIndex = parseInt(event.target.dataset.index);
+          removeFromCart(itemIndex);
+          displayCartItems();
+        }
+      });
+
+      
+      document.getElementById("checkout-btn").addEventListener("click", function() {
+        if (cart.length > 0) {
+          alert(`Compra finalizada! Total: R$ ${cart.reduce((sum, item) => sum + parseFloat(item.price), 0).toFixed(2)}`);
+          cart = [];
+          updateCartCount();
+          document.getElementById('cart-modal').style.display = 'none';
+          document.getElementById('modal-overlay').style.display = 'none';
+        } else {
+          alert("Seu carrinho está vazio!");
+        }
+      });
+
+    
+      window.displayCartItems = displayCartItems;
+    });
+  </script>
+
+</body>
+</html>
