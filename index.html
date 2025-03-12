@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loja Online</title>
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <title>RUSpot</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/163b3848e1.js" crossorigin="anonymous">
     
@@ -83,7 +84,7 @@
 
   
   <section class="banner">
-    <img src="banner.png" alt="Logo Senac">
+    <img src="Group 6.png" alt="Logo Senac">
   </section>
 
   
@@ -359,7 +360,7 @@
         </div>
       </div>
     </div>
-    <button class="add-to-cart" id="botao-cardapio-compra" data-name="Ticket almoço/janta" data-price="15,99">Comprar Ticket</button>
+    <button class="add-to-cart" id="botao-cardapio-compra" data-name="Ticket almoço/janta" data-price="15,00">Comprar Ticket</button>
   </div>
 
 
@@ -452,7 +453,7 @@
       </div>
     </div>
 
-    <!-- Carousel: Bala Fini -->
+   
     <div class="carousel">
       <h2>Bala Fini</h2>
       <div class="carousel-container" id="fini-carousel">
@@ -627,8 +628,34 @@
     </div>
   </div>
 
+  <footer>
+    <div class="footer-map">
+      <p class="text">Como chegar:</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.01335526525!2d-52.34143362542748!3d-31.770121674100565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b5be08c39731%3A0x644b62f2bc9bddd5!2sUniSenac%20-%20Campus%20Pelotas!5e0!3m2!1spt-BR!2sbr!4v1741809578912!5m2!1spt-BR!2sbr" width="60%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Logo da empresa" class="img-logo">
+      <div class="footer-links">
+        <a href="#contato" class="footer-link">Contato</a>
+        <a href="#politicas" class="footer-link">Políticas de Privacidade</a>
+        <a href="#sobre-nos" class="footer-link">Sobre Nós</a>
+      </div>
+      
+      <div class="footer-social">
+        <a href="https://facebook.com" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  
+    
+  </footer>
+  
+  
   <script>
-    // Functions to show content sections
+  
     function mostrarCardapio() {
       document.getElementById('cardapio').style.display = 'block';
       document.getElementById('mercado').style.display = 'none';
