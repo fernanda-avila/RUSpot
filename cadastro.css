@@ -119,12 +119,16 @@ input[type=number]
     z-index: 1;
 }
 button {
-    border-radius: 50px;
+    border-radius: 30px;
     display: flex;
     justify-content: end;
     cursor: pointer;
     border: none;
     background-color: #40B7D3;
+}
+
+button img {
+    width: 70px;
 }
 a {
     text-decoration: none;

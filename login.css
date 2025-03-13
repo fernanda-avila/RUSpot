@@ -99,6 +99,10 @@ button {
     border: none;
     background-color: #40B7D3;
 }
+
+button img {
+   width: 70px;
+}
 a {
     text-decoration: none;
     color: #000000;
@@ -108,12 +112,13 @@ a {
 .olho {
     position: absolute;
     right: 48px;
-    top: 62%;
+    top: 60%;
     transform: translateY(-50%);
     cursor: pointer;
     width: 20px;
     z-index: 1;
 }
+
 
 
 

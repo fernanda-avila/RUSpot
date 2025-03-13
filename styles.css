@@ -240,6 +240,11 @@ body {
     margin-left: -40px;
 }
 
+.fa-map-marker-alt {
+    color: #5DA9D5;
+    font-size: 34px;
+}
+
 
 
 
@@ -338,7 +343,8 @@ body {
     color: white;
 }
 
-.market-button {
+.market-button, 
+.text {
     background-color: #f37021;
     color: white;
 }
@@ -675,10 +681,21 @@ footer {
   }
 
   .text {
-    font-size: 28px;
+    padding: 10px 20px;
+    width: 10%;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    text-align: left;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .text:hover {
+    background-color: #f0a500;
+
   }
   
 

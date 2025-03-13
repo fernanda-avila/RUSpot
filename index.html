@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <title>RUSpot</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://kit.fontawesome.com/163b3848e1.js" crossorigin="anonymous">
@@ -92,10 +92,11 @@
     <button class="menu-button" onclick="mostrarCardapio()">Cardápio</button>
     <button class="market-button" onclick="mostrarMercado()">Mercado</button>
   </div>
+  
 
 
  <div id="cardapio" class="content-section cardapio-content">
-  <!-- <img src="freepik__background__26214.png" alt="" class="img-cardapio"> -->
+  
 
     <div class="accordion-container">
      
@@ -630,7 +631,7 @@
 
   <footer>
     <div class="footer-map">
-      <p class="text">Como chegar:</p>
+      <p class="text">Localização:</p>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.01335526525!2d-52.34143362542748!3d-31.770121674100565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b5be08c39731%3A0x644b62f2bc9bddd5!2sUniSenac%20-%20Campus%20Pelotas!5e0!3m2!1spt-BR!2sbr!4v1741809578912!5m2!1spt-BR!2sbr" width="60%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="footer-container">
@@ -666,9 +667,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      // CART MODAL FUNCTIONALITY
-
-      // Open cart modal when clicking the cart icon
+      
       const cartIcon = document.querySelector('.cart-icon');
       cartIcon.addEventListener('click', function(event) {
         event.preventDefault();
@@ -769,6 +768,22 @@
     
       window.displayCartItems = displayCartItems;
     });
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", function() {
+        const item = {
+          name: this.dataset.name,
+          price: this.dataset.price
+        };
+        addToCart(item);
+        alert(`${item.name} foi adicionado ao carrinho!`);
+      });
+    });
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", function() {
+        alert("Produto adicionado ao carrinho!");
+      });
+    })
   </script>
 
 </body>
